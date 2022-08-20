@@ -4,6 +4,7 @@ from datetime import datetime
 from prophet import Prophet
 from prophet.plot import plot_plotly
 import plotly
+import sys
 import warnings
 
 # Ignore warnings
@@ -26,49 +27,38 @@ coins = [
 
 
 def main():
-    name,coin = Get_coin()
-    Duration = Get_duration()
+    name,coin = Get_coin(input("Which Cryptocoin do you want to forecast?: ").strip())
+    Duration = Get_duration(input("How many months do you want to see ahead ?: ").strip())
     data = Get_Data(coin)
     Graph = Create_plot(data,Duration)
-    Graph = Style_plot(Graph,coin,name)
+    Graph = Style_plot(Graph,name)
     Graph.show()
-    
-    response = input("Do you wish to save the results?: ")
-    if response.lower().strip() in ["yes","y"]:
-        plotly.offline.plot(Graph, filename=f'{name.capitalize()}.html')
-    else: print("Thanks for using my programe ")
+    Save_plot(input("Do you wish to save the results?: "),Graph,name)
 
 
 # Getting number of days (refusing all but strict number of days)
-def Get_duration():
-    while True:
-        d = input("How many days do you want to see ahead ?: ").strip()
-        try :
-            d = int(d)
-        except:
-            print("Invalid number of days")
-            continue
-        break
-    return d
+def Get_duration(d):
+    try :
+        d = int(d)
+    except:
+        sys.exit("Invalid number of days")
+    return d*30
 
 
-def Get_coin():
-    while True:
-        coin = input("Which Cryptocoin do you want to forecast?: ").strip()
-        for crypto in coins:
-            if coin.lower() == crypto["name"] :
-                return crypto["name"],crypto["symbol"]
-            if coin.upper() == crypto["symbol"]:
-                return crypto["name"],coin.upper()
-        print("Invalid name/symbol")
-        print("Example of use : BTC\n-or-\nExample of use : Bitcoin")
+def Get_coin(coin):
+    for crypto in coins:
+        if coin.lower() == crypto["name"] :
+            return crypto["name"],crypto["symbol"]
+        if coin.upper() == crypto["symbol"]:
+            return crypto["name"],coin.upper()
+    sys.exit("Invalid name/symbol\nExample of use : BTC\n-or-\nExample of use : Bitcoin")
             
             
 # Getting data for the Coin
 def Get_Data(c):
     today_date = datetime.today().strftime('%Y-%m-%d')
     # The first date where we can get Eth price info
-    start_date = '2016-01-01'
+    start_date = '2014-01-01'
     Eth_data = finace.download(f"{c}-USD",start = start_date,end = today_date)
     Eth_data.reset_index(inplace = True)       # Using Eth_data.columns we can see that we dont have a date columns so we need to index it == reseting index to count from first row
     # We need just tha date and open price
@@ -91,7 +81,7 @@ def Create_plot(data,Input):
     
     
 # Styling the Graph
-def Style_plot(Final,c,n):
+def Style_plot(Final,n):
     Final.update_layout(title_text=f"{n.capitalize()} Open Price Plot",
                     title_font_size=30,
                     xaxis_title="Date",
@@ -117,6 +107,13 @@ def Style_plot(Final,c,n):
     return Final
 
 
+def Save_plot(response,Graph,name):
+    if response.lower().strip() in ["yes","y"]:
+        plotly.offline.plot(Graph, filename=f'{name.capitalize()}.html')
+        print("Thanks for using my program ")
+    else: pass
+    return print("Thanks for using my program ")
+    
     
 if __name__ == "__main__":
     main()
