@@ -13,17 +13,19 @@ Used library:
 * warnings
 * sys
 
-Many people try to buy cryptocurrency, but most are always mistrustful, including myself, thinking that the market could go down by a lot in just one day. Seeing how prophet by meta prediction was close to accurate made me want to do this project for myself before anyone else.
-Getting Ethepy to be completely functional wasn't an easy task. I needed two main things: a way to make legitimate predictions and how to put that information into some kind of graph. When I discovered Fbprophet made my meta and plotly, which made my project idea fesable.
+Many people try to buy cryptocurrency, but most are always mistrustful, including myself, thinking that the market could go down by a lot in just one day and lose your money easily. Seeing how prophet by meta prediction was close to accurate made me want to do this project for myself before anyone else.
+Getting Ethepy to be completely functional wasn't an easy task. I needed two main things: a way to make legitimate predictions and how to put that information into some kind of graph. When I discovered prophet made my meta and plotly, which made my project idea fesable.
+That was the fisrt part of my project ,i realised then that prophet make prediction based on solely on the graph but in reality that not the only thing that affect the cypto market but also the sentiment of people around social media. This is where i got the idea to make the second part of the project get data from twitter about how people feel about a certain cryptomoney
 
 
-### How the webpage works:
+### How the program works:
 
 To get this program to work, I used a couple of libraries. Each of those helped achieve a certain task :
-* yfinance: used to obtain open prices and dates for a specific cryptocurrency selected by the user.
+* yfinance: yahho API used to obtain open prices and dates for a specific cryptocurrency selected by the user.
 * Pandas: allowed me to organize data from yfinance in clean tables.
 * Prophet: The main library that allowed for the prediction of Crypto prices.
-* Plotly: Finally, plotly was the glue that held everything together, allowing me to create and style a plot with data from YFinance and Prophet.
+* Plotly: Finally, plotly was the glue that held everything together, allowing me to create and style a plot with data from YFinance and Prophet and show or put the result into a pdf.
+
 First you will need to type the name(example: Etherium) or the symbol(example: ETH) of the cryptocurrency you want, then the number of months which you want to forecast. After that, you will get a preview of the graph. At last, you will be able to save it or not.
 
 ### How to Install and Run Ethepy:
@@ -38,7 +40,7 @@ First you will need to type the name(example: Etherium) or the symbol(example: E
 
 ### How to use Ethepy:
 
-Once you have installed all the necessary libraries (if you want to install the librairies manually check notes.md ), run the program, and voila, you have your predictions (change the width and height if you have a smaller screen in the styling function).
+Once you have installed all the necessary libraries, run the program, and voila, you have your predictions (change the width and height if you have a smaller screen in the styling function).
 
 
 ### License
