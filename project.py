@@ -112,12 +112,14 @@ def Style_plot(Final,n):
     return Final
 
 
+
 def Save_plot(response,Graph,name):
     if "yes" in response.lower() or "y" in response.lower():
         print("Writing...")
         Graph.write_image(f"Plots/{name}.pdf")
     else: pass
     return print("Thanks for using my program ")
+    
     
     
 if __name__ == "__main__":
