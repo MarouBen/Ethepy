@@ -8,11 +8,10 @@ Used library:
 * Pandas
 * yfinance
 * datetime
-* prophet(/fbprophet)
+* prophet
 * plotly
 * warnings
 * sys
-
 
 Many people try to buy cryptocurrency, but most are always mistrustful, including myself, thinking that the market could go down by a lot in just one day. Seeing how prophet by meta prediction was close to accurate made me want to do this project for myself before anyone else.
 Getting Ethepy to be completely functional wasn't an easy task. I needed two main things: a way to make legitimate predictions and how to put that information into some kind of graph. When I discovered Fbprophet made my meta and plotly, which made my project idea fesable.
@@ -27,18 +26,19 @@ To get this program to work, I used a couple of libraries. Each of those helped 
 * Plotly: Finally, plotly was the glue that held everything together, allowing me to create and style a plot with data from YFinance and Prophet.
 First you will need to type the name(example: Etherium) or the symbol(example: ETH) of the cryptocurrency you want, then the number of months which you want to forecast. After that, you will get a preview of the graph. At last, you will be able to save it or not.
 
-### How to Install and Run Pinsta:
+### How to Install and Run Ethepy:
 
-1. Clone the repesitory : `git clone https://github.com/MarouBen/Project-2-Ethepy.git`
+1. Wont work on python latest version i used 3.10.7
 
-2. You'll need the previous libraries install, use `pipenv` or any other method
+2. Clone the repesitory : `git clone https://github.com/MarouBen/Project-2-Ethepy.git`
 
-3. Open the file and run `python project.py`
+3. You'll need the previous libraries install, use `pip install -r requirments.txt` or any other method
 
-### How to use Pinsta:
+4. Open the file and run `python project.py`
 
-Once you have installed all the necessary libraries (important : don't try to install fbprophet, use prophet), run the program, and voila, you have your predictions (change the width and height if you have a smaller screen in the styling function).
+### How to use Ethepy:
 
+Once you have installed all the necessary libraries (if you want to install the librairies manually check notes.md ), run the program, and voila, you have your predictions (change the width and height if you have a smaller screen in the styling function).
 
 
 ### License

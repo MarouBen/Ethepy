@@ -6,6 +6,8 @@ from prophet.plot import plot_plotly
 import plotly
 import sys
 import warnings
+import os
+
 
 # Ignore warnings
 warnings.filterwarnings('ignore')
@@ -32,8 +34,11 @@ def main():
     data = Get_Data(coin)
     Graph = Create_plot(data,Duration)
     Graph = Style_plot(Graph,name)
-    Graph.show()
-    Save_plot(input("Do you wish to save the results?: "),Graph,name)
+    if input("Do you wish to see the resuls right now ?: ").lower().strip() in ["yes","y"]:
+        Graph.show()
+    if not os.path.exists("Plots"):
+        os.mkdir("Plots")
+    Save_plot(input("Do you wish to save the results ?: "),Graph,name)
 
 
 # Getting number of days (refusing all but strict number of days)
@@ -108,9 +113,9 @@ def Style_plot(Final,n):
 
 
 def Save_plot(response,Graph,name):
-    if response.lower().strip() in ["yes","y"]:
-        plotly.offline.plot(Graph, filename=f'{name.capitalize()}.html')
-        print("Thanks for using my program ")
+    if "yes" in response.lower() or "y" in response.lower():
+        print("Writing...")
+        Graph.write_image(f"Plots/{name}.pdf")
     else: pass
     return print("Thanks for using my program ")
     
