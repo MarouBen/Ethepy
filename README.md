@@ -15,6 +15,7 @@ Used library:
 
 Many people try to buy cryptocurrency, but most are always mistrustful, including myself, thinking that the market could go down by a lot in just one day and lose your money easily. Seeing how prophet by meta prediction was close to accurate made me want to do this project for myself before anyone else.
 Getting Ethepy to be completely functional wasn't an easy task. I needed two main things: a way to make legitimate predictions and how to put that information into some kind of graph. When I discovered prophet made my meta and plotly, which made my project idea fesable.
+
 That was the fisrt part of my project ,i realised then that prophet make prediction based on solely on the graph but in reality that not the only thing that affect the cypto market but also the sentiment of people around social media. This is where i got the idea to make the second part of the project get data from twitter about how people feel about a certain cryptomoney
 
 
