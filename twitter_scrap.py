@@ -2,8 +2,9 @@ import tweepy as twe
 import pandas as pan
 import numpy as np
 from textblob import TextBlob
-from matplotlib import pyplot as ppt
+import matplotlib.pyplot as ppt
 from project import Get_coin
+ppt.style.use("fivethirtyeight")
 
 # Here are the four needed variables given by tweeter developer you can get yours if those dosent works
 Key = ""
@@ -45,3 +46,13 @@ def Build_df(Tweets):
     df["Polarity"] = df["Tweets"].apply(Get_polarity)
     df["Sentiment"] = df["Polarity"].apply(Get_sentiment)
     return df
+
+# Function to create a plot
+def Build_plot(df,name):
+    plot = df["Sentiment"].value_counts().plot(kind = "bar")
+    ppt.title(f"Sentiment Analysis of {name}")
+    ppt.xlabel("Sentiment")
+    ppt.ylabel("Num of Tweets")
+    ppt.savefig(f"Plots/Sentiment of {name}.pdf")
+    return None
+    
