@@ -22,13 +22,12 @@ def Get_tweets(name):
     Full_tweets = twe.Cursor(api.search_30_day, q=keyword)
     # Filter just the tweets text
     Tweets = [{"Tweets":tweet.text} for tweet in Full_tweets]
-    #creating panda dataframe
-    df = pan.DataFrame(Tweets)
-    return df
+    return Tweets
 
-# Functn that get the polarity of a tweet
+# Function that get the polarity of a tweet
 def Get_polarity(twt):
     return TextBlob(twt).sentiment.polarity
+
 
 # Function that gets the sentiment of the tweet
 def Get_sentiment(n):
@@ -39,3 +38,10 @@ def Get_sentiment(n):
     else:
         return "neutral"
     
+# Functin that build the dataframe with the polarity and sentiment
+def Build_df(Tweets):
+    # Creating panda dataframe
+    df = pan.DataFrame(Tweets)
+    df["Polarity"] = df["Tweets"].apply(Get_polarity)
+    df["Sentiment"] = df["Polarity"].apply(Get_sentiment)
+    return df
