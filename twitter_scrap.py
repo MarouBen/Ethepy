@@ -25,4 +25,17 @@ def Get_tweets(name):
     #creating panda dataframe
     df = pan.DataFrame(Tweets)
     return df
+
+# Functn that get the polarity of a tweet
+def Get_polarity(twt):
+    return TextBlob(twt).sentiment.polarity
+
+# Function that gets the sentiment of the tweet
+def Get_sentiment(n):
+    if n < 0:
+        return "negative"
+    elif n > 0 :
+        return "positive"
+    else:
+        return "neutral"
     
