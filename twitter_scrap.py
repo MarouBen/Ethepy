@@ -7,15 +7,21 @@ from project import Get_coin
 ppt.style.use("fivethirtyeight")
 
 # Here are the four needed variables given by tweeter developer you can get yours if those dosent works
-Key = ""
-Secret = ""
-Token = ""
-TokenSecret = ""
+Key = "bpWyda2RuIryjyHGLUOGM6QFK"
+Secret = "JWlQnGoUrK72YyQZzcMeEr0m6RIgP0Uy4TDr6mryNkKSqVmjil"
+Token = "1597963175479201792-9GhrfziYt6Bsmm58BwYmGDelOumiLk"
+TokenSecret = "lqZOQwZvvyjkRPxW0EViQaaQrmoJGVe86NZtNXGGMy2M7"
 
 # Authentification 
 authen = twe.OAuth2AppHandler(Key,Secret)
 authen.set_access_token(Token,TokenSecret)
 api = twe.API(authen,wait_on_rate_limit = True)
+
+def main():
+    Tweets = Get_tweets("Bitcoin")
+    df = Build_df(Tweets)
+
+
 
 # Get tweets
 def Get_tweets(name):
@@ -55,4 +61,7 @@ def Build_plot(df,name):
     ppt.ylabel("Num of Tweets")
     ppt.savefig(f"Plots/Sentiment of {name}.pdf")
     return None
+
+if __name__ == "__main__":
+    main()
     
