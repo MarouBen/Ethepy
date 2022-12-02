@@ -32,7 +32,7 @@ def main():
 # Get tweets
 def Get_tweets(name):
     keyword = f"#{name} -filter:retweets"
-    Full_tweets = twe.Cursor(api.search_tweets, q=keyword).items()
+    Full_tweets = twe.Cursor(api.search_tweets, q = keyword, lang = "en").items(2000)
     # Filter just the tweets text
     Tweets = [{"Tweets":tweet.text} for tweet in Full_tweets]
     return Tweets
@@ -62,7 +62,7 @@ def Build_df(Tweets):
 def Build_plot(df,name):
     plot = df["Sentiment"].value_counts().plot(kind = "bar")
     ppt.title(f"Sentiment Analysis of {name}")
-    ppt.xlabel("Sentiment",rotation='horizontal')
+    ppt.xlabel("Sentiment")
     ppt.ylabel("Num of Tweets")
     ppt.savefig(f"Plots/Sentiment of {name}.pdf")
     return None
