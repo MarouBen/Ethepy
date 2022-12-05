@@ -17,7 +17,8 @@ pan.options.display.float_format = '${:,.2f}'.format
 
 # Data for coin symbols and names
 coins = [
-        {"name":"binance","symbol":"BNB"},
+        {"name":"binance coin","symbol":"BUSD"},
+        {"name":"binance usd","symbol":"BNB"},
         {"name":"bitcoin","symbol":"BTC"},
         {"name":"etherium","symbol":"ETH"},
         {"name":"solana","symbol":"SOL"},
@@ -25,6 +26,11 @@ coins = [
         {"name":"dogecoin","symbol":"DOGE"},
         {"name":"avalanche","symbol":"AVAX"},
         {"name":"tron","symbol":"TRX"},
+        {"name":"tether ","symbol":"USDT"},
+        {"name":"u.s. dollar coin","symbol":"USDC"},
+        {"name":"cardano","symbol":"ADA"},
+        {"name":"polygon","symbol":"MATIC"},
+        {"name":"cosmos ","symbol":"ATOM"},
     ]
 
 
@@ -119,9 +125,9 @@ def Save_plot(response,Graph,name):
         Graph.write_image(f"Plots/{name}.pdf")
     else: pass
     return print("Thanks for using my program ")
-    
-    
-    
+  
+  
+     
 if __name__ == "__main__":
     main()
 
