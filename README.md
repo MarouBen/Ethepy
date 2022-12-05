@@ -22,10 +22,11 @@ That was the fisrt part of my project ,i realised then that prophet make predict
 ### How the program works:
 
 To get this program to work, I used a couple of libraries. Each of those helped achieve a certain task :
-* yfinance: yahho API used to obtain open prices and dates for a specific cryptocurrency selected by the user.
+
+* yfinance: Yahoo finance API used to obtain open prices and dates for a specific cryptocurrency selected by the user.
 * Pandas: allowed me to organize data from yfinance in clean tables.
-* Prophet: The main library that allowed for the prediction of Crypto prices.
-* Plotly: Finally, plotly was the glue that held everything together, allowing me to create and style a plot with data from YFinance and Prophet and show or put the result into a pdf.
+* Prophet: The main library that allowed for the prediction of future Crypto prices.
+* Plotly: Finally, plotly was the glue that held everything together, allowing me to create and style a plot with data from YFinance and Prophet.
 
 First you will need to type the name(example: Etherium) or the symbol(example: ETH) of the cryptocurrency you want, then the number of months which you want to forecast. After that, you will get a preview of the graph. At last, you will be able to save it or not.
 

@@ -13,7 +13,7 @@ fonttools==4.38.0
 hijri-converter==2.2.4
 holidays==0.17.2
 idna==3.4
-kaleido @ https://github.com/plotly/Kaleido/releases/download/v0.1.0.post1/kaleido-0.1.0.post1-py2.py3-none-win_amd64.whlwin_amd64.whl
+kaleido @ https://github.com/plotly/Kaleido/releases/download/v0.1.0.post1/kaleido-0.1.0.post1-py2.py3-none-win_amd64.whl
 kiwisolver==1.4.4
 korean-lunar-calendar==0.3.1
 LunarCalendar==0.0.9
