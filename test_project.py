@@ -1,4 +1,4 @@
-from project import Get_coin,Get_duration
+from forecast import Get_coin,Get_duration
 import pytest
 
 

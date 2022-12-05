@@ -5,7 +5,7 @@ import re
 import nltk
 from textblob import TextBlob
 import matplotlib.pyplot as ppt
-from project import Get_coin
+from forecast import Get_coin
 
 nltk.download('stopwords')
 stopwords = nltk.corpus.stopwords.words('english')
