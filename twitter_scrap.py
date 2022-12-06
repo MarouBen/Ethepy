@@ -33,6 +33,7 @@ def scrap(name):
 def Get_tweets(name):
     keyword = f"#{name} -filter:retweets"
     Full_tweets = twe.Cursor(api.search_tweets, q = keyword, lang = "en").items(2000)
+    print("Getting tweets...")
     # Filter just the tweets text
     Tweets = [{"Tweets":tweet.text} for tweet in Full_tweets]
     return Tweets
@@ -64,7 +65,7 @@ def Build_plot(df,name):
     ppt.title(f"Sentiment Analysis of {name}")
     ppt.xlabel("Sentiment")
     ppt.ylabel("Num of Tweets")
-    ppt.savefig(f"Plots/Sentiment of {name}.pdf")
+    ppt.savefig(f"Plots/sentiment of {name.lower()}.jpeg")
     return None
 
 

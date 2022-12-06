@@ -38,11 +38,11 @@ def forecast(name,symbol,duration):
     data = Get_Data(symbol)
     Graph = Create_plot(data,duration)
     Graph = Style_plot(Graph,name)
-    if input("Do you wish to see the resuls of the forecast right now ?: ").lower().strip() in ["yes","y"]:
+    if input("Do you wish to see the resuls of the forecast on your browser right now ?: ").lower().strip() in ["yes","y"]:
         Graph.show()
-    if not os.path.exists("Plots"):
-        os.mkdir("Plots")
-    Save_plot(input("Do you wish to save the results ?: "),Graph,name)
+    if not os.path.exists("Pdf"):
+        os.mkdir("Pdf")
+    Save_plot(Graph,name)
     return "Done forecasting"
 
                        
@@ -100,11 +100,9 @@ def Style_plot(Final,n):
 
 
 # Saving the plot as a pdf 
-def Save_plot(response,Graph,name):
-    if "yes" in response.lower() or "y" in response.lower():
-        print("Writing...")
-        Graph.write_image(f"Plots/{name}.pdf")
-    else: pass
+def Save_plot(Graph,name):
+    print("saving the forecast...")
+    Graph.write_image(f"Plots/{name}.jpeg")
     return print("Thanks for using my program ")
   
   
