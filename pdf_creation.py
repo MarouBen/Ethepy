@@ -34,6 +34,8 @@ def Creat_pdf(name):
     pdf.set_font("Arial", size = 18)
     pdf.cell(w = 200, h = 10, ln=2, txt = " Sentiment", align="L")
     pdf.image(name=f"Plots/sentiment of {name}.jpeg", w=120, h=80)
+    pdf.set_font("Arial", size = 12)
+    pdf.cell(w = 200, h = 4, txt="#NoFinacialAdvice use the information you get here to do your own deduction")
 
     # Creat the pdf
     if not os.path.exists("pdf"):
