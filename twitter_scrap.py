@@ -5,13 +5,12 @@ import re
 import nltk
 from textblob import TextBlob
 import matplotlib.pyplot as ppt
-from forecast import Get_coin
 
 nltk.download('stopwords')
 stopwords = nltk.corpus.stopwords.words('english')
 
 
-# Here are the four needed variables given by tweeter developer you can get yours if those dosent works
+# Here are the four needed variables given by tweeter developer you can get yours if those wont works
 Key = "bpWyda2RuIryjyHGLUOGM6QFK"
 Secret = "JWlQnGoUrK72YyQZzcMeEr0m6RIgP0Uy4TDr6mryNkKSqVmjil"
 Token = "1597963175479201792-9GhrfziYt6Bsmm58BwYmGDelOumiLk"
@@ -22,10 +21,11 @@ authen = twe.OAuthHandler(Key,Secret)
 authen.set_access_token(Token,TokenSecret)
 api = twe.API(authen,wait_on_rate_limit = True)
 
-def main():
-    Tweets = Get_tweets("Bitcoin")
+def scrap(name):
+    Tweets = Get_tweets(name)
     df = Build_df(Tweets)
-    Build_plot(df,"Bitcoin")
+    Build_plot(df,name)
+    return "Done scraping"
 
 
 
@@ -81,7 +81,3 @@ def Clean_tweets(tweet):
     tweet = [w for w in tweet if not w in stopwords] # remove stopwords
     tweet = " ".join(word for word in tweet)
     return tweet
-
-if __name__ == "__main__":
-    main()
-    
