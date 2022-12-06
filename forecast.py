@@ -33,38 +33,19 @@ coins = [
         {"name":"cosmos ","symbol":"ATOM"},
     ]
 
-
-def main():
-    name,coin = Get_coin(input("Which Cryptocoin do you want to forecast?: ").strip())
-    Duration = Get_duration(input("How many months do you want to see ahead ?: ").strip())
-    data = Get_Data(coin)
-    Graph = Create_plot(data,Duration)
+# Main function in this part of the project
+def forecast(name,symbol,duration):
+    data = Get_Data(symbol)
+    Graph = Create_plot(data,duration)
     Graph = Style_plot(Graph,name)
-    if input("Do you wish to see the resuls right now ?: ").lower().strip() in ["yes","y"]:
+    if input("Do you wish to see the resuls of the forecast right now ?: ").lower().strip() in ["yes","y"]:
         Graph.show()
     if not os.path.exists("Plots"):
         os.mkdir("Plots")
     Save_plot(input("Do you wish to save the results ?: "),Graph,name)
+    return "Done forecasting"
 
-
-# Getting number of days (refusing all but strict number of days)
-def Get_duration(d):
-    try :
-        d = int(d)
-    except:
-        sys.exit("Invalid number of days")
-    return d*30
-
-
-def Get_coin(coin):
-    for crypto in coins:
-        if coin.lower() == crypto["name"] :
-            return crypto["name"],crypto["symbol"]
-        if coin.upper() == crypto["symbol"]:
-            return crypto["name"],coin.upper()
-    sys.exit("Invalid name/symbol\nExample of use : BTC\n-or-\nExample of use : Bitcoin")
-            
-            
+                       
 # Getting data for the Coin
 def Get_Data(c):
     today_date = datetime.today().strftime('%Y-%m-%d')
@@ -118,7 +99,7 @@ def Style_plot(Final,n):
     return Final
 
 
-
+# Saving the plot as a pdf 
 def Save_plot(response,Graph,name):
     if "yes" in response.lower() or "y" in response.lower():
         print("Writing...")
@@ -127,10 +108,6 @@ def Save_plot(response,Graph,name):
     return print("Thanks for using my program ")
   
   
-     
-if __name__ == "__main__":
-    main()
-
 
 
 
