@@ -1,3 +1,4 @@
 Plots
 __pycache__
 pdf
+.pytest_cache

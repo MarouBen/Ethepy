@@ -3,7 +3,7 @@
 
 ### Description:
 Hello world, Welcome to ETHEPY, Marouane BEN ABBOU's CS50P final project.
-In quick terms, Ethepy is a back-end program fully in Python that allows the user to get predictions about specific cryptocurencies for a specified duration.
+In quick terms, Ethepy is a app fully in Python that allows the user to get predictions about specific cryptocurencies for a specified duration.
 Used library:
 * Pandas
 * yfinance
