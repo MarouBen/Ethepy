@@ -7,16 +7,19 @@ In quick terms, Ethepy is a back-end program fully in Python that allows the use
 Used library:
 * Pandas
 * yfinance
-* datetime
 * prophet
+* tweepy
 * plotly
-* warnings
-* sys
+* fpdf
+* matplotlib
+and other dependecies and common libraries
 
 Many people try to buy cryptocurrency, but most are always mistrustful, including myself, thinking that the market could go down by a lot in just one day and lose your money easily. Seeing how prophet by meta prediction was close to accurate made me want to do this project for myself before anyone else.
 Getting Ethepy to be completely functional wasn't an easy task. I needed two main things: a way to make legitimate predictions and how to put that information into some kind of graph. When I discovered prophet made my meta and plotly, which made my project idea fesable.
 
-That was the fisrt part of my project ,i realised then that prophet make prediction based on solely on the graph but in reality that not the only thing that affect the cypto market but also the sentiment of people around social media. This is where i got the idea to make the second part of the project get data from twitter about how people feel about a certain cryptomoney
+That was the fisrt part of my project ,i realised then that prophet make prediction based solely on the graph but in reality that not the only thing that affect the crypto market but also the sentiment of people on social media. This is where i got the idea to make the second part of the project get data from twitter about how people feel regarding a certain cryptocurrency.
+
+Finnaly come the last part of my project is to put all the information into a pdf which got me to find Fpdf a realy usefull library that allow you to create pdfs and style them.
 
 
 ### How the program works:
@@ -26,9 +29,12 @@ To get this program to work, I used a couple of libraries. Each of those helped 
 * yfinance: Yahoo finance API used to obtain open prices and dates for a specific cryptocurrency selected by the user.
 * Pandas: allowed me to organize data from yfinance in clean tables.
 * Prophet: The main library that allowed for the prediction of future Crypto prices.
-* Plotly: Finally, plotly was the glue that held everything together, allowing me to create and style a plot with data from YFinance and Prophet.
+* Plotly: Plotly was the glue that held all the forcasting data together, allowing me to create and style a plot with data from YFinance and Prophet.
+* matplotlib : has the same purpos as Plotly but i used this one for the twitter data scraping part since it's more efficient
+* tweepy : this is the twitter API that allowed me to scrap 2000 tweet from twitter for my sentiment analisys
+* fpdf : finnaly fpdf allowed me to create a pdf that contain all the previous information into a compact format
 
-First you will need to type the name(example: Etherium) or the symbol(example: ETH) of the cryptocurrency you want, then the number of months which you want to forecast. After that, you will get a preview of the graph. At last, you will be able to save it or not.
+First you will need to type the name(example: Etherium) or the symbol(example: ETH) of the cryptocurrency you want, then the number of months which you want to forecast. After that, you will get to chose if you want to see a preview of the forecast on your browsear. At last, you will get all the analisys in a pdf format in a pdf directory.
 
 ### How to Install and Run Ethepy:
 
@@ -38,11 +44,11 @@ First you will need to type the name(example: Etherium) or the symbol(example: E
 
 3. You'll need the previous libraries install, use `pip install -r requirments.txt` or any other method
 
-4. Open the file and run `python project.py`
+4. Open the file and run `py project.py`
 
 ### How to use Ethepy:
 
-Once you have installed all the necessary libraries, run the program, and voila, you have your predictions (change the width and height if you have a smaller screen in the styling function).
+Once you have installed all the necessary libraries, run the program, and voila, you have your predictions and your twitter sentiment analisys in a pdf format.
 
 
 ### License
