@@ -1,15 +1,16 @@
-from forecast import Get_coin,Get_duration
+from project import Get_name,Get_duration,Get_symbol
 import pytest
 
 
-def test_Get_coin():
-    assert Get_coin("BTC") == ("bitcoin","BTC")
-    assert Get_coin("btc") == ("bitcoin","BTC")
-    assert Get_coin("Binance") == ("binance","BNB")
+def test_Get_symbol():
+    assert Get_symbol("bitcoin") == ("BTC")
+    assert Get_symbol("xrp") == ("XRP")
+    assert Get_symbol("etherium") == ("ETH")
+    
     with pytest.raises(SystemExit):
-        Get_coin("cat")
+        Get_symbol("cat")
     with pytest.raises(SystemExit):
-        Get_coin("123")
+        Get_symbol("123")
 
 def test_Get_duration():
     assert Get_duration("12") == 12*30
@@ -19,4 +20,5 @@ def test_Get_duration():
         assert Get_duration("1c1") == "Invalid number of days"
     with pytest.raises(SystemExit):
         assert Get_duration("") == "Invalid number of days"
+        
     

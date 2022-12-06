@@ -3,8 +3,6 @@ import yfinance as finace
 from datetime import datetime
 from prophet import Prophet
 from prophet.plot import plot_plotly
-import plotly
-import sys
 import warnings
 import os
 
@@ -40,10 +38,9 @@ def forecast(name,symbol,duration):
     Graph = Style_plot(Graph,name)
     if input("Do you wish to see the resuls of the forecast on your browser right now ?: ").lower().strip() in ["yes","y"]:
         Graph.show()
-    if not os.path.exists("Pdf"):
-        os.mkdir("Pdf")
+    if not os.path.exists("Plots"):
+        os.mkdir("Plots")
     Save_plot(Graph,name)
-    return "Done forecasting"
 
                        
 # Getting data for the Coin
@@ -103,7 +100,7 @@ def Style_plot(Final,n):
 def Save_plot(Graph,name):
     print("saving the forecast...")
     Graph.write_image(f"Plots/{name}.jpeg")
-    return print("Thanks for using my program ")
+    
   
   
 

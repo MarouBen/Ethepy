@@ -25,7 +25,6 @@ def scrap(name):
     Tweets = Get_tweets(name)
     df = Build_df(Tweets)
     Build_plot(df,name)
-    return "Done scraping"
 
 
 

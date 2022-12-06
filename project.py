@@ -1,15 +1,25 @@
+import os
 import sys
+import shutil
 from forecast import coins,forecast
 from twitter_scrap import scrap
-
+from pdf_creation import Creat_pdf
 
 
 def main():
+    # Getting the name of the cryptocurrency and it symbol
     name = Get_name()
     symbol = Get_symbol(name)
+    # Duration that we will forecast
     Duration = Get_duration()
+    
+    # The three projects that make this work
     forecast(name,symbol,Duration)
     scrap(name.capitalize())
+    Creat_pdf(name.lower())
+    
+    # Cleaning up
+    clean_up()
 
 
 
@@ -39,6 +49,12 @@ def Get_duration():
     except:
         sys.exit("Invalid number of days")
     return days*30
+
+# A clean up function
+def clean_up():
+    if os.path.exists("Plots"):
+        shutil.rmtree("Plots")
+    return print("Thanks for using my program ")
 
 
 if __name__ == "__main__":
