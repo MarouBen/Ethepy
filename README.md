@@ -1,5 +1,5 @@
 # ETHEPY
-#### Video Demo:  <[https://www.youtube.com/watch?v=okA5s25EZts&t=2s]()>
+#### Video Demo:  <[URL HERE](https://www.youtube.com/watch?v=okA5s25EZts&t=2s)>
 
 ### Description:
 Hello world, Welcome to ETHEPY, Marouane BEN ABBOU's CS50P final project.
