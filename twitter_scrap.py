@@ -10,11 +10,13 @@ nltk.download('stopwords')
 stopwords = nltk.corpus.stopwords.words('english')
 
 
-# Here are the four needed variables given by tweeter developer you can get yours if those wont works
-Key = "bpWyda2RuIryjyHGLUOGM6QFK"
-Secret = "JWlQnGoUrK72YyQZzcMeEr0m6RIgP0Uy4TDr6mryNkKSqVmjil"
-Token = "1597963175479201792-9GhrfziYt6Bsmm58BwYmGDelOumiLk"
-TokenSecret = "lqZOQwZvvyjkRPxW0EViQaaQrmoJGVe86NZtNXGGMy2M7"
+# Here are the four needed variables given by tweeter developer you should get yours to get this part working
+Key = ""
+Secret = ""
+Token = ""
+TokenSecret = ""
+if (secret == ""):
+    return print("you forgot to get your twitter developer key")
 
 # Authentification 
 authen = twe.OAuthHandler(Key,Secret)
