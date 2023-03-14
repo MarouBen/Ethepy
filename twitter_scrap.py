@@ -15,7 +15,7 @@ Key = ""
 Secret = ""
 Token = ""
 TokenSecret = ""
-if (secret == ""):
+if (Secret == ""):
     return print("you forgot to get your twitter developer key")
 
 # Authentification 
